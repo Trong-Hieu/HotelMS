@@ -1,0 +1,73 @@
+<div class="container">
+  <br/><br/>
+  <div class="ml-5">
+    <!-- <div id="service-btn">
+      <button class="btn btn-primary btn-modify" routerLink = "/bookService" id="chooseserviceBtn">Book Services</button>
+      <button class="btn btn-light btn-modify" routerLink = "/listService" id="ChoosenlistBtn">List Service Used by Customer</button>
+  
+    </div> -->
+  
+    <form id="chooseService" class="mt-3" #f = "ngForm" (ngSubmit) = "saveBookService(f.value)">
+      <div id="chooseServiceOption">
+        <div class="mb-3 row">
+          <label for="serviceCategory" class="col-sm-2 col-form-label">Category:</label>
+          <div class="col-sm-9">
+              <select id="serviceCategory" class="form-control input-modify"
+                (change) = "selectedCategory($event.target.value)"
+                name="serviceCategory" [(ngModel)]=chooseService.categoryId>
+                  <option disabled>Open this select menu</option>
+                  <option *ngFor='let svc of serviceCategories' value="{{svc.categoryId}}">
+                    {{svc.categoryName}}</option>
+              </select>
+          </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="serviceId" class="col-sm-2 col-form-label">Menu:</label>
+          <div class="col-sm-9">
+              <select id="serviceId" class="form-control input-modify"
+                name="serviceId" [(ngModel)]=chooseService.serviceId>
+                  <option disabled>Open this select menu</option>
+                  <option *ngFor='let sv of services' value="{{sv.serviceId}}">{{sv.serviceName}}</option>
+              </select>
+          </div>
+      </div>
+      <div class="mb-3 row">
+        <label for="useDate" class="col-sm-2 col-form-label">Quantity:</label>
+        <div class="col-sm-9">
+            <input type="number" class="form-control input-modify"
+              id="quantity" name="quantity" [(ngModel)]=chooseService.quantity>
+        </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="useDate" class="col-sm-2 col-form-label">Date:</label>
+          <div class="col-sm-9">
+              <input type="datetime-local" class="form-control input-modify"
+                id="useDate" name="useDate" [(ngModel)]=chooseService.useDate>
+          </div>
+      </div>
+      <div class="mb-3 row">
+          <label for="roomId" class="col-sm-2 col-form-label">Room Charge:</label>
+          <div class="col-sm-9">
+            <select id="roomId" class="form-control input-modify"
+              (change) = "selectedRoom($event.target.value)"
+              name="roomId" [(ngModel)]=chooseService.roomId>
+              <option disabled>Open this select menu</option>
+              <option *ngFor='let rl of roomlist' value="{{rl.roomId}}">{{rl.roomNumber}}</option>
+          </select>
+          </div>
+      </div>
+    </div>
+  
+  
+      <div class="d-grid gap-2 d-md-block ">
+          <button class="btn btn-primary btn-modify">SAVE</button>
+      </div>
+  
+    </form>
+    <div *ngIf="customerServiceId" class="mt-3">
+      <button class="btn btn-success mr-3">Pay</button>
+      <button class="btn btn-success">Room Charge</button>
+    </div>
+    
+  </div>
+</div>

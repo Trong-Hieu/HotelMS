@@ -1,0 +1,59 @@
+<div class="container">
+    <br/><br/>
+    <div class="ml-5">
+
+      <div class="row">
+        <div class="col-sm-6">
+          <p style="font-size: large;"><b>{{title}}</b></p>
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-success" style="float: right;"
+            routerLink="/manage-room">VIEW ROOM</button>
+        </div>
+      </div>
+
+      <hr>
+
+        <form id="roomForm" class="mt-3" #f = "ngForm" (ngSubmit) = "saveRoom(f.value)">
+            
+            <div class="mb-3 row">
+                <label for="roomCategory" class="col-sm-2 col-form-label">Category:</label>
+                <div class="col-sm-9 ">
+                    <select class="form-control input-modify" id="roomCategory"
+                      #name="ngModel" [(ngModel)]="roomForm.roomCategory.roomCategoryId" name="roomCategory">
+                        <option disabled>Open this select menu</option>
+                        <option *ngFor='let rc of roomCategories'
+                         value="{{rc.roomCategoryId}}">{{ rc.categoryName }}</option>
+                    </select>
+                </div>
+              </div>
+            
+            <div class="mb-3 row form-group">
+              <label for="roomNumber" class="col-sm-2 col-form-label">Room Numer:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control input-modify" id="roomNumber"
+                #name="ngModel" [(ngModel)]="roomForm.roomNumber" name="roomNumber">
+              </div>
+            </div>
+    
+            <div class="mb-3 row">
+              <label for="description" class="col-sm-2 col-form-label">Description:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control input-modify" id="description"
+                #name="ngModel" [(ngModel)]="roomForm.description" name="description">
+              </div>
+            </div>
+    
+            <button class="btn btn-primary input-modify" id="addBtn"
+              style="float: right;">
+              SAVE ROOM
+            </button>
+      </form>
+
+      <button *ngIf="roomId" class="btn btn-danger input-modify mr-3" 
+        (click)="delete(roomId)">
+        DELETE ROOM
+      </button>
+      
+    </div>
+  </div>

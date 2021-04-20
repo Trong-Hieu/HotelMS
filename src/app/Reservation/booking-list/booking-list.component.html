@@ -1,0 +1,62 @@
+<div class="container">
+  <br/><br/>
+  <div class="ml-5">
+    <div id="booking-btn">
+      <button class="btn btn-light btn-modify" routerLink = "/booking"
+       id="bookingFormBtn">Booking</button>
+      <button class="btn btn-primary btn-modify" [routerLink] = "['/list', 'view']"
+       id="viewBookingBtn">View</button>
+    </div>
+
+  <ul class="nav nav-tabs mt-5">
+    <li class="nav-item">
+      <a class="nav-link active" href="#" (click)="changeViewByStatus('W')" aria-controls="home" role="tab" data-toggle="tab">BOOKED</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="changeViewByStatus('I')" aria-controls="profile" role="tab" data-toggle="tab">CHECKED IN</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" (click)="changeViewByStatus('C')" aria-controls="messages" role="tab" data-toggle="tab">CANCEL</a>
+    </li>
+
+  </ul>
+
+  <div id="viewBooking">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Booking Id</th>
+                <th>Customer</th>
+                <th>Room</th>
+                <th>Start date</th>
+                <th>End date</th>
+                <th>Info</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of bookingsFiltered">
+                <td>{{ booking.bookingId }}</td>
+                <td>{{ booking.customer.customerName }}</td>
+
+                <td>{{ booking.room.roomNumber }}</td>
+                <td>{{ booking.startDate }}</td>
+                <td>{{ booking.endDate }}</td>
+                <td>
+                    <i class="icon-info"
+                      [routerLink] = "['/booking/', booking.bookingId ]" alt=""></i>
+                </td>
+                <td *ngIf="bookingStatus == 'W'; else checkIn">
+                  <button class="btn btn-success" (click) = "changeStatus(booking.bookingId,'I', booking)">Check In</button>
+                  <button class="btn btn-danger" (click) = "changeStatus(booking.bookingId,'C', booking)">Cancel</button>
+                </td>
+                <td *ngIf="bookingStatus == 'I'; else checkIn">
+                  <button class="btn btn-success" (click) = "checkOut(booking.bookingId,'O', booking)">Check Out</button>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+  </div>
+  
+</div>

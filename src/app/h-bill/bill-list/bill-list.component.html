@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="ml-5">
+        <br/><br/>
+        <div class="bill__type">
+            <button id="btn-done" class="bill__type-btn btn btn-light"
+                routerLink="/bill">Get Bill</button>
+            <button id="btn-not-done" class="bill__type-btn btn btn-primary"
+                routerLink="/listBill">Payed Bill</button>
+        </div>
+        <div id="payedBilllist" class="mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Bill Status</th>
+                        <th scope="col">Room</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let pb of payedBills'>
+                        <td>{{ pb.billId }}</td>
+                        <td>{{ pb.billStatus }}</td>
+                        <td>{{ pb.booking.room.roomNumber }}</td>
+                        <td>{{ pb.booking.startDate }}</td>
+                        <td>{{ pb.booking.endDate }}</td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+          </div>
+            
+    </div>
+    </div>

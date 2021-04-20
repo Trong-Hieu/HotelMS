@@ -1,0 +1,22 @@
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" id="home"
+      #menu1 routerLink="/" (click)="changeMenu('home')">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/booking" #menu2
+      (click)="changeMenu('booking')">Booking</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/service-table" #menu3
+      (click)="changeMenu('service')">Service</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="/bill" #menu4
+      (click)="changeMenu('bill')">Bill</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/manage-staff" #menu5
+        (click)="changeMenu('manage')">Manage</a>
+    </li>
+</ul>

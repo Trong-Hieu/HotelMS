@@ -1,0 +1,25 @@
+<div class="container">
+    <br/><br/>
+    <div class="ml-5">
+      <div class="">
+        <button id="" class="btn btn btn-light" routerLink="/manage-staff">STAFF</button>
+        <button id="" class="btn btn btn-light" routerLink="/manage-room">ROOM</button>
+        <button id="" class="btn btn btn-light" routerLink="/manage-service">SERVICE</button>
+        <button id="" class="btn btn btn-primary" routerLink="/manage-report">CUSTOMER</button>
+      </div>
+  
+      <div class="row">
+        
+        <canvas baseChart 
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [plugins]="barChartPlugins"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+        </canvas>
+    
+      </div>
+      
+    </div>
+  </div>

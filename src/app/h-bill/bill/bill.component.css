@@ -1,0 +1,9 @@
+.room_charge{
+    border: 1px solid gray;
+}
+.service_charge{
+    border: 1px solid gray;
+}
+.container{
+    min-height: 1000px !important;
+}

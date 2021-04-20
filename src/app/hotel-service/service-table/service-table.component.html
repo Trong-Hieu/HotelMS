@@ -1,0 +1,24 @@
+<div class="container">
+    <br/><br/>
+    <div class="ml-5">
+      <div id="service-btn">
+        <button class="btn btn-primary btn-modify" routerLink = "/service-table" id="chooseserviceBtn">Service Tables</button>
+        <button class="btn btn-light btn-modify" routerLink = "/listService" id="ChoosenlistBtn">List Service Used by Customer</button>
+      </div>
+      <div id="service-tables" class="row mt-5">
+        
+    <div *ngFor="let tbl of tables" class="col-sm-2 mr-4 mt-3"
+      >
+      <a [routerLink]="['/bookService/', tbl.tableId]">
+        <img *ngIf="!tbl.customerService" src="https://image.flaticon.com/icons/png/128/1189/1189353.png"
+          class="" >
+        <img *ngIf="tbl.customerService" src="https://image.flaticon.com/icons/png/128/1189/1189390.png"
+          class="" >
+        <p *ngIf="tbl.customerService">{{tbl.customerService.booking.room.roomNumer}}</p>
+      </a>
+    </div>
+
+
+      </div>
+    </div>
+  </div>

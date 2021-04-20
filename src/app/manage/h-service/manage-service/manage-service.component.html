@@ -1,0 +1,59 @@
+<div class="container">
+    <br/><br/>
+    <div class="ml-5">
+      <div class="">
+        <button id="" class="btn btn btn-light" routerLink="/manage-staff">STAFF</button>
+        <button id="" class="btn btn btn-light" routerLink="/manage-room">ROOM</button>
+        <button id="" class="btn btn btn-primary" routerLink="/manage-service">SERVICE</button>
+        <button id="" class="btn btn btn-light">CUSTOMER</button>
+      </div>
+  
+      <div class="row mt-3">
+        <div class="col-sm-6">
+            <div class="dropdown">
+                <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Select Service Category
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" *ngFor="let svc of serviceCategories"
+                  (click) = "chooseServiceCategory(svc.categoryId)">{{svc.categoryName}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <button class="btn btn-primary addServicebtn" routerLink="/manage-service/add">Add Service</button>
+        </div>
+    
+      </div>
+
+      <div id="viewRoom" class="mt-3">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Service Id</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let service of services">
+                    <td>{{ service.serviceId }}</td>
+                    <td>{{ service.serviceName }}</td>
+    
+                    <td>{{ service.serviceCategory.categoryName }}</td>
+                    <td>{{ service.price }}</td>
+                    <td>
+                        <i class="icon-info"
+                          [routerLink] = "['/manage-service/infor/', service.serviceId ]" alt="infor"></i>
+                    </td>
+                    
+                </tr>
+            </tbody>
+    
+        </table>
+      </div>
+      
+    </div>
+  </div>

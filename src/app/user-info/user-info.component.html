@@ -1,0 +1,98 @@
+<div class="container mt-5">
+
+
+  <form id="currentStaff" #f = "ngForm" (ngSubmit) = "updateStaff(f.value)">
+        <div class="mb-3 row form-group">
+          <label for="staffName" class="col-sm-3 col-form-label">Name:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="staffName"
+            #name="ngModel" [(ngModel)]="currentStaff.staffName" name="staffName">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="gender" class="col-sm-3 col-form-label">Gender:</label>
+          <div class="col-sm-9 ">
+              <select class="form-control input-modify" id="gender"
+              #name="ngModel" [(ngModel)]="currentStaff.gender" name="gender">
+                  <option selected disabled>Open this select menu</option>
+                  <option value="X">Male</option>
+                  <option value="O">Female</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="indentityNumber" class="col-sm-3 col-form-label">Identification:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="indentityNumber"
+            #name="ngModel" [(ngModel)]="currentStaff.indentityNumber" name="indentityNumber">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="birthday" class="col-sm-3 col-form-label">Birthday:</label>
+          <div class="col-sm-9">
+            <input type="date" class="form-control input-modify" id="birthday"
+            #name="ngModel" [(ngModel)]="currentStaff.birthday" name="birthday">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="staffAdress" class="col-sm-3 col-form-label">Address:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="staffAddress"
+            #name="ngModel" [(ngModel)]="currentStaff.staffAddress" name="staffAddress">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="phoneNumber" class="col-sm-3 col-form-label">Phone Number:</label>
+          <div class="col-sm-9">
+            <input type="number" class="form-control input-modify" id="phoneNumber"
+            #name="ngModel" [(ngModel)]="currentStaff.phoneNumber" name="phoneNumber">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="username" class="col-sm-3 col-form-label">Username:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="username"
+            #name="ngModel" [(ngModel)]="currentStaff.username" name="username">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="staffPassword" class="col-sm-3 col-form-label">Password:</label>
+          <div class="col-sm-9">
+            <input type="password" class="form-control input-modify" id="staffPassword"
+            #name="ngModel" [(ngModel)]="currentStaff.staffPassword" name="staffPassword">
+          </div>
+        </div>
+
+
+        <div class="mb-3 row">
+          <label for="departmentId" class="col-sm-3 col-form-label">Department:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="departmentId"
+            #name="ngModel" [(ngModel)]="currentStaff.departmentId" name="departmentId">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="roleId" class="col-sm-3 col-form-label">Role:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="roleId"
+            #name="ngModel" [(ngModel)]="currentStaff.roleId" name="roleId">
+          </div>
+        </div>
+
+        <button class="btn btn-primary input-modify" id="bookBtn">
+          SAVE
+        </button>
+
+
+  </form>
+
+</div>
+

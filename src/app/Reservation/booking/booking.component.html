@@ -1,0 +1,109 @@
+<div class="container">
+  <br/><br/>
+  <div class="ml-5">
+    <div id="booking-btn">
+      <button class="btn btn-primary btn-modify" routerLink = "/booking"
+       id="bookingFormBtn">Booking</button>
+      <button class="btn btn-light btn-modify" [routerLink] = "['/list', 'view']"
+       id="viewBookingBtn">View</button>
+    </div>
+
+
+    <form id="bookingForm" class="mt-3" #f = "ngForm" (ngSubmit) = "saveBooking(f.value)">
+        <div class="mb-3 row form-group">
+          <label for="customerName" class="col-sm-2 col-form-label">Customer Name:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="customerName"
+            #name="ngModel" [(ngModel)]="bookingForm.customerName" name="customerName">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="customerGender" class="col-sm-2 col-form-label">Gender:</label>
+          <div class="col-sm-9 ">
+              <select class="form-control input-modify" id="customerGender"
+              #name="ngModel" [(ngModel)]="bookingForm.customerGender" name="customerGender">
+                  <option selected disabled>Open this select menu</option>
+                  <option value="X">Male</option>
+                  <option value="Y">Female</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="customerIdentification" class="col-sm-2 col-form-label">Customer Identification:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="customerIdentification"
+            #name="ngModel" [(ngModel)]="bookingForm.customerIdentification" name="customerIdentification">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="customerAdress" class="col-sm-2 col-form-label">Customer Address:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="customerAddress"
+            #name="ngModel" [(ngModel)]="bookingForm.customerAddress" name="customerAddress">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="customerEmail" class="col-sm-2 col-form-label">Customer Email:</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control input-modify" id="customerEmail"
+            #name="ngModel" [(ngModel)]="bookingForm.customerEmail" name="customerEmail">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="startDate" class="col-sm-2 col-form-label">Start Date:</label>
+          <div class="col-sm-9">
+            <input type="datetime-local" class="form-control input-modify" id="startDate"
+            #name="ngModel" [(ngModel)]="bookingForm.startDate" name="startDate"
+            (change) = "selectedStartDate($event.target.value)">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="endDate" class="col-sm-2 col-form-label">End Date:</label>
+          <div class="col-sm-9">
+            <input type="datetime-local" class="form-control input-modify" id="endDate"
+            #name="ngModel" [(ngModel)]="bookingForm.endDate" name="endDate"
+            (change) = "selectedEndDate($event.target.value)">
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="roomCategory" class="col-sm-2 col-form-label">Room Category:</label>
+          <div class="col-sm-9 ">
+              <select class="form-control input-modify" id="roomCategory"
+                (change) = "selectedCategory($event.target.value)"
+                #name="ngModel" [(ngModel)]="bookingForm.roomCategory" name="roomCategory">
+                  <option disabled>Open this select menu</option>
+                  <option *ngFor='let rc of roomCategories'
+                   value="{{rc.roomCategoryId}}">{{ rc.categoryName }}</option>
+              </select>
+          </div>
+        </div>
+
+        <div class="mb-3 row">
+          <label for="roomNumber" class="col-sm-2 col-form-label">Room Number:</label>
+          <div class="col-sm-9 ">
+              <select class="form-control input-modify" id="roomId"
+              (change) = "selectedRoom($event.target.value)"
+              #name="ngModel" [(ngModel)]="bookingForm.roomId" name="roomId">
+                  <option disabled>Open this select menu</option>
+                  <option *ngFor='let room of roomsByCategory' value="{{room.roomId}}">{{ room.roomNumber }}</option>
+              </select>
+          </div>
+        </div>
+
+        <button class="btn btn-primary input-modify" id="bookBtn">
+          Book this
+        </button>
+
+
+  </form>
+
+  </div>
+
+</div>

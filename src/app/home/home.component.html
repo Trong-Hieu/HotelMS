@@ -1,0 +1,27 @@
+<div class="justify-content-center mt-5 ml-5">
+  <div class="rainbow">
+    <div class="form mt-5" *ngIf="!currentStaff">
+      Please login
+      <form #f = "ngForm" (ngSubmit) = "login(f.value)">
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control" name="username"
+          id="username" placeholder="Username" ngModel>
+        </div>
+        <div class="form-floating">
+          <input type="password" class="form-control" name="staffPassword"
+          id="staffPassword" placeholder="Password" ngModel>
+        </div>
+        <button class="btn btn-primary mt-3">Login</button>
+      </form>
+      
+    </div>
+
+    <div *ngIf="currentStaff">
+      Welcome {{currentStaff.role.roleName}} : {{currentStaff.staffName}}
+      <br/><br/>
+      Please Logout your account as soon as your shift end
+      <br/><br/>
+      <button class="btn btn-danger mt-3" (click)="logout()">Logout</button>
+    </div>
+  </div>
+</div>

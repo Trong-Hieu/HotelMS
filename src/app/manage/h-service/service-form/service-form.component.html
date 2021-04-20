@@ -1,0 +1,67 @@
+<div class="container">
+    <br/><br/>
+    <div class="ml-5">
+
+      <div class="row">
+        <div class="col-sm-6">
+          <p style="font-size: large;"><b>{{title}}</b></p>
+        </div>
+        <div class="col-sm-6">
+          <button class="btn btn-success" style="float: right;"
+            routerLink="/manage-service">VIEW SERVICE</button>
+        </div>
+      </div>
+
+      <hr>
+
+        <form id="serviceForm" class="mt-3" #f = "ngForm" (ngSubmit) = "saveService(f.value)">
+            
+            <div class="mb-3 row">
+                <label for="serviceCategory" class="col-sm-2 col-form-label">Category:</label>
+                <div class="col-sm-9 ">
+                    <select class="form-control input-modify" id="serviceCategory"
+                      #name="ngModel" [(ngModel)]="serviceForm.serviceCategory.categoryId" name="serviceCategory">
+                        <option>ALL</option>
+                        <option *ngFor='let svc of serviceCategories'
+                         value="{{svc.categoryId}}">{{ svc.categoryName }}</option>
+                    </select>
+                </div>
+              </div>
+            
+            <div class="mb-3 row form-group">
+              <label for="serviceName" class="col-sm-2 col-form-label">Service Name:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control input-modify" id="serviceName"
+                #name="ngModel" [(ngModel)]="serviceForm.serviceName" name="serviceName">
+              </div>
+            </div>
+
+            <div class="mb-3 row form-group">
+                <label for="price" class="col-sm-2 col-form-label">Service Price:</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control input-modify" id="price"
+                  #name="ngModel" [(ngModel)]="serviceForm.price" name="price">
+                </div>
+            </div>
+    
+            <div class="mb-3 row">
+              <label for="description" class="col-sm-2 col-form-label">Description:</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control input-modify" id="description"
+                #name="ngModel" [(ngModel)]="serviceForm.description" name="description">
+              </div>
+            </div>
+    
+            <button class="btn btn-primary input-modify" id="addBtn"
+              style="float: right;">
+              SAVE SERVICE
+            </button>
+      </form>
+
+      <button *ngIf="serviceId" class="btn btn-danger input-modify mr-3" 
+        (click)="delete(serviceId)">
+        DELETE SERVICE
+      </button>
+      
+    </div>
+  </div>

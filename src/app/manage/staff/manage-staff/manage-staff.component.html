@@ -1,0 +1,33 @@
+
+<div class="container">
+  <br/><br/>
+  <div class="ml-5">
+    <div class="">
+      <button id="" class="btn btn btn-primary" routerLink="/manage-staff">STAFF</button>
+      <button id="" class="btn btn btn-light" routerLink="/manage-room">ROOM</button>
+      <button id="" class="btn btn btn-light" routerLink="/manage-service">SERVICE</button>
+      <button id="" class="btn btn btn-light" routerLink="/manage-report">CUSTOMER</button>
+    </div>
+
+    <button class="btn btn-primary mt-3" routerLink="/manage-staff/add">Add Staff</button>
+
+    <div class="row">
+      
+    <div class="col-sm-2 card mr-4 mt-3"
+      *ngFor="let staff of staffs">
+      <img *ngIf="staff.gender=='X'" src="https://cdn1.iconfinder.com/data/icons/business-and-finance-filled-outline-1/128/Personnel_man_staff_avatar_people_star_rating-512.png"
+          class="card-img-top" >
+      <img *ngIf="staff.gender=='Y'" src="https://cdn1.iconfinder.com/data/icons/business-and-finance-filled-outline-1/128/Personnel_woman_staff_avatar_people_star_rating-512.png"
+          class="card-img-top" >
+      <div class="card-body">
+          <h6 class="card-title">{{staff.staffName}}</h6>
+      </div>
+      <div class="text-center">
+          <a [routerLink]="['/manage-staff/profile/', staff.staffId]" type="button" class="btn btn-success">See Profile</a>
+      </div>
+    </div>
+  
+    </div>
+    
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <br/><br/>
+  <div class="ml-5">
+    <div id="service-btn">
+      <button class="btn btn-light btn-modify" routerLink = "/service-table" id="chooseserviceBtn">Book Services</button>
+      <button class="btn btn-primary btn-modify" routerLink = "/listService" id="ChoosenlistBtn">List Service Used by Customer</button>
+    </div>
+    <div id="Choosenlist" class="mt-5">
+      <table class="table table-striped">
+          <thead>
+              <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Type</th>
+                  <th scope="col">Room</th>
+                  <th>Date</th>
+                  <th scope="col">Quantity</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor='let cs of customerService'>
+                  <td>{{ cs.customerServiceId }}</td>
+                  <td>{{ cs.service.serviceName }}</td>
+                  <td>{{ cs.booking.room.roomId }}</td>
+                  <td>{{ cs.useDate }}</td>
+                  <td>{{ cs.quantity }}</td>
+                  <td>
+                      <i class="icon-info" onclick=""></i>
+                  </td>
+              </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>
